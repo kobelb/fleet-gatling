@@ -8,5 +8,7 @@
 .DS_Store
 *~
 
-# building
+# gatling files
 target
+results
+

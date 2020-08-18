@@ -22,8 +22,10 @@ import scala.concurrent.duration._
 
 class FloodKibanaAuthSimulation extends Simulation {
 
+  val kibana_host = System.getProperty("kibana_host")
+
   val httpProtocol = http
-    .baseUrl("https://10.128.0.63:5601") // Here is the root for all relative URLs
+    .baseUrl("https://" + kibana_host + ":5601") // Here is the root for all relative URLs
 
   val scn = scenario("Flood Kibana Auth") // A scenario is a chain of requests and pauses
     .exec(

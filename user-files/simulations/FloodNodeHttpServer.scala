@@ -22,8 +22,10 @@ import scala.concurrent.duration._
 
 class FloodNodeHttpServerSimulation extends Simulation {
 
+  val kibana_host = System.getProperty("kibana_host")
+
   val httpProtocol = http
-    .baseUrl("http://10.128.0.63:3000") // Here is the root for all relative URLs
+    .baseUrl("https://" + kibana_host + ":5601") // Here is the root for all relative URLs
 
   val scn = scenario("Flood Node HTTP Server") // A scenario is a chain of requests and pauses
     .exec(

@@ -22,8 +22,10 @@ import scala.concurrent.duration._
 
 class FloodESAuthSimulation extends Simulation {
 
+  val es_host = System.getProperty("es_host")
+
   val httpProtocol = http
-    .baseUrl("https://10.128.0.52:9200") // Here is the root for all relative URLs
+    .baseUrl("https://" + es_host + ":5601") // Here is the root for all relative URLs
 
   val scn = scenario("Scenario Name") // A scenario is a chain of requests and pauses
     .exec(
